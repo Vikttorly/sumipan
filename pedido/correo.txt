@@ -1,0 +1,24 @@
+error_reporting(0);
+					$cactual = $_POST['cactual'];
+					$destino = "viclaya1@hotmail.com";
+					$asunto = "Pedido de codigo: ".$codigo;
+
+					$comentario = "
+						Nombre del Negocio: $_POST[nnegocio]	
+						Propietario: $_POST[propietario]
+						Rif: $_POST[rif]
+						Cedula del Propietario: $_POST[cpropietario]
+						Dirrección: $_POST[direccion]
+						Parroquia: $_POST[parroquia]
+						Ciudad: $_POST[ciudad]
+						Estado: $_POST[estado]
+						Codigo Postal: $_POST[cpostal]
+						Telefono nº 1: $_POST[t1]
+						Telefono nº 2: $_POST[t2]
+						Fax: $_POST[fax]
+					";
+
+					$headers = 'From:'.$destino."\r\n".
+					'Reply-To:'.$destino."\r\n".
+					'X-Mailer:PHP/'.phpversion();
+					mail($destino,$asunto,$comentario,$headers);
